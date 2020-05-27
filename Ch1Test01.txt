@@ -1,5 +1,5 @@
-﻿*** MainWindow.xaml ***
-// Define what is needed as Modules?
+﻿/* MainWindow.xaml
+/* Defining "Classes" 5 different "namespaces"
 Window x:Class="MatchGame.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -9,16 +9,16 @@ Window x:Class="MatchGame.MainWindow"
     mc:Ignorable="d"
     Title="Find all of the matching Emojis" Height="450" Width="400">
 
-// Define the grid
+/* Define the grid
     <Grid x:Name="mainGrid">
-        // Define the generic columns
+        /* Define the generic columns
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        // Define the generic rows
+        /* Define the generic rows
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
@@ -26,7 +26,7 @@ Window x:Class="MatchGame.MainWindow"
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-        // Define the Columns/Rows and positions
+        /* Define the Columns/Rows and positions
         <textBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" contextmenu="?" />
         <textBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" contextmenu="?" />
         <textBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" contextmenu="?" />
@@ -47,9 +47,9 @@ Window x:Class="MatchGame.MainWindow"
 </Window>
 
 ------------------------------------------------------------------------------------------
-*** MainWindow.xaml.cs ***
+/* MainWindow.xaml.cs
 
-// Calling the Bullshit it needs
+/* Defining the "using directives"
 using System;
 using System.Collections.Generic;
 using system.Linq;
@@ -66,46 +66,44 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 
-// Defining the space as code for the MatchGame
+/* Defining the space as code for the MatchGame
 namespace MatchGame
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+    /* Interaction logic for MainWindow.xaml
 
-    /// Making a class that can be recalled into the "MainWindow"
+    /* Making a class that can be recalled into the "MainWindow"
     public partial class MainWindow : Window
     {
-        /// Setup area to define format for "MainWindow"
+        /* Setup area to define format for "MainWindow"
         public MainWindow()
         {
             InitializeComponent();
             SetUpGame();
         }
 
-        /// The areas code for the formatted area
+        /* The areas code for the formatted area
         private void SetUpGame()
         {
-            /// Making and naming a list. Defining name is string. Adding keys to list.
+            /* Making and naming a list. Defining name is string. Adding keys to list.
             List<string> animalEmoji = name List<string>()
             {
             "❤", "❤", "🍕", "🍕", "🥰", "🥰", "🎅", "🎅",
             "💋", "💋", "🐓", "🐓", "🔥", "🔥", "💅", "💅"
             };
             
-            /// Making a new random number
+            /* Making a new random number
             Random random = new Random();
 
-            /// Making a "for" loop that runs until all textBlosks are processed
-            for each (TextBlock textBlock in mainGrid.Children.OfType<TextBlock>())
+            /* Making a "for" loop that runs until all textBlocks are processed
+            foreach (TextBlock textBlock in mainGrid.Children.OfType<TextBlock>())
             {
-                /// index is a random number between 0 and the amount of animalEmojis -1
+                /* index is a random number between 0 and the amount of animalEmojis -1
                 int index = random.Next(animalEmoji.Count);
-                /// nextEmoji is varible a/is string = the random choosen animalEmoji choosen on p/line
+                /* nextEmoji is varible a/is string = the random choosen animalEmoji choosen on p/line
                 string nextEmoji = animalEmoji[index];
-                /// the next textBlock in grid is given the next choosen animalEmoji
+                /* the next textBlock in grid is given the next choosen animalEmoji
                 textBlock.Text = nextEmoji;
-                /// the most reason animalEmoji is removed from the list so not chosen again
+                /* the most recent animalEmoji is removed from the list so not chosen again
                 animalEmoji.RemoveAt(index);
             }
         }
